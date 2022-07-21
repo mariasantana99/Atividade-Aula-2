@@ -21,22 +21,22 @@ console.log(products);
 
 // Imprima no console a soma do estoque de todos os produtos.
 
-const somaEstoque = products.reduce((acc, product) => {
-    return acc + product.quantity;
+const somaEstoque = products.reduce((acc, {quantity}) => {
+    return acc + quantity;
 }, 0)
 
 console.log(somaEstoque);
 
 // Imprima produtos com preço superior a um determinado valor.
 
-function filterUpper(price) {
-    return products.filter(product => product.price >= price);
+function filterUpper(priceInput) {
+    return products.filter(({price}) => price >= priceInput);
 }
 
 console.log(filterUpper(200));
 
 // Imprima o nome de todos os produtos que tenham a letra 'o' em seu nome.
 
-const letraO = products.filter(product => product.name.includes('o'));
+const letraO = products.filter(({name}) => name.includes('o'));
 
 console.log(letraO);
